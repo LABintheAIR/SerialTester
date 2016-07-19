@@ -36,11 +36,11 @@
             }
             
             function sendON(){
-              serial.write("1", function success(), function(){ alert("Failed to write data"); } );
+              serial.write("1", function(){ alert("Data sent !"); }, function(){ alert("Failed to write data"); } );
             }
             
             function sendOFF(){
-              serial.write("0", function success(), function(){ alert("Failed to write data"); } );
+              serial.write("0", function(){ alert("Data sent !"); }, function(){ alert("Failed to write data"); } );
             }
 
         </script>
