@@ -24,6 +24,7 @@
 
             function errorCallback( message ){
               alert( "Error : " + message );
+              console.log( new Error().stack );
             }
 
             function onload(){
