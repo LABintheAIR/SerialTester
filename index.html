@@ -24,7 +24,6 @@
 
             function errorCallback( message ){
               alert( "Error : " + message );
-              console.log( new Error().stack );
             }
 
             function onload(){
@@ -32,7 +31,7 @@
             }
 
             function deviceReady(){
-              serial.requestPermission( function(){
+              serial.requestPermission({vid: '2a03', pid: '0043'}, function(){
                                           serial.open({baudRate: 9600}, function(){ alert("Serial port open :)"); }, errorCallback );
                                         }, 
                                         errorCallback
