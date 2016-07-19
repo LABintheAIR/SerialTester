@@ -20,27 +20,30 @@
 
         <script type="text/javascript">
             app.initialize();
-                                  
+
+
+            function errorCallback( message ){
+              alert( "Error : " + message );
+            }
+
             function onload(){
               document.addEventListener("deviceready", deviceReady, false);
             }
 
             function deviceReady(){
               serial.requestPermission( function(){
-                                          serial.open({baudRate: 9600}, function(){ alert("Serial port open :)"); }, function(){ alert("Failed to open Serial port"); } );
+                                          serial.open({baudRate: 9600}, function(){ alert("Serial port open :)"); }, errorCallback );
                                         }, 
-                                        function(){
-                                          alert("Failed to request Serial permission");
-                                        }
+                                        errorCallback
               );
             }
             
             function sendON(){
-              serial.write("1", function(){ alert("Data sent !"); }, function(){ alert("Failed to write data"); } );
+              serial.write("1", function(){ alert("Data sent !"); }, errorCallback);
             }
             
             function sendOFF(){
-              serial.write("0", function(){ alert("Data sent !"); }, function(){ alert("Failed to write data"); } );
+              serial.write("0", function(){ alert("Data sent !"); }, errorCallback );
             }
 
         </script>
